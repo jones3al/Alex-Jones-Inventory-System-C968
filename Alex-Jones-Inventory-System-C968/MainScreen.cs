@@ -17,17 +17,12 @@ namespace AlexJonesInventorySystem
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addPartsButton_Click(object sender, EventArgs e)
         {
-
+            new AddPartScreen().ShowDialog();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ExitAppButton_Click(object sender, EventArgs e)
+        private void exitAppButton_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -40,6 +35,21 @@ namespace AlexJonesInventorySystem
         private void PartsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void modifyPartsButton_Click(object sender, EventArgs e)
+        {
+            new ModifyPartScreen().ShowDialog();
+        }
+
+        private void addProductsButton_Click(object sender, EventArgs e)
+        {
+            new AddProductScreen().ShowDialog();
+        }
+
+        private void modifyProductsButton_Click(object sender, EventArgs e)
+        {
+            new ModifyProductScreen().ShowDialog();
         }
     }
 }

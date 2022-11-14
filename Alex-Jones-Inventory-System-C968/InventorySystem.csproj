@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A524F325-8243-4F66-B570-BF73FACF48A9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsApp1</RootNamespace>
-    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <RootNamespace>AlexJonesInventorySystem</RootNamespace>
+    <AssemblyName>AlexJonesInventorySystem</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProductScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProductScreen.Designer.cs">
+      <DependentUpon>AddProductScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyPartScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyPartScreen.Designer.cs">
+      <DependentUpon>ModifyPartScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPartScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPartScreen.Designer.cs">
+      <DependentUpon>AddPartScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyProductScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyProductScreen.Designer.cs">
+      <DependentUpon>ModifyProductScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddProductScreen.resx">
+      <DependentUpon>AddProductScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyPartScreen.resx">
+      <DependentUpon>ModifyPartScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPartScreen.resx">
+      <DependentUpon>AddPartScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyProductScreen.resx">
+      <DependentUpon>ModifyProductScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
