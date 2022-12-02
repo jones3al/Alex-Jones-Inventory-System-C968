@@ -56,9 +56,10 @@ namespace AlexJonesInventorySystem
             this.partsDataGridView.Name = "partsDataGridView";
             this.partsDataGridView.RowHeadersWidth = 51;
             this.partsDataGridView.RowTemplate.Height = 24;
+            this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGridView.Size = new System.Drawing.Size(692, 348);
             this.partsDataGridView.TabIndex = 0;
-            this.partsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PartsDataGridView_CellContentClick);
+            this.partsDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.BindingComplete);
             // 
             // productsDataGridView
             // 
@@ -67,6 +68,7 @@ namespace AlexJonesInventorySystem
             this.productsDataGridView.Name = "productsDataGridView";
             this.productsDataGridView.RowHeadersWidth = 51;
             this.productsDataGridView.RowTemplate.Height = 24;
+            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsDataGridView.Size = new System.Drawing.Size(692, 348);
             this.productsDataGridView.TabIndex = 1;
             // 
@@ -78,6 +80,7 @@ namespace AlexJonesInventorySystem
             this.searchPartsButton.TabIndex = 2;
             this.searchPartsButton.Text = "Search";
             this.searchPartsButton.UseVisualStyleBackColor = true;
+            this.searchPartsButton.Click += new System.EventHandler(this.SearchPartsButton_Click);
             // 
             // searchPartsTextbox
             // 
@@ -101,6 +104,7 @@ namespace AlexJonesInventorySystem
             this.searchProductsButton.TabIndex = 5;
             this.searchProductsButton.Text = "Search";
             this.searchProductsButton.UseVisualStyleBackColor = true;
+            this.searchProductsButton.Click += new System.EventHandler(this.SearchProductsButton_Click);
             // 
             // addPartsButton
             // 
@@ -110,7 +114,7 @@ namespace AlexJonesInventorySystem
             this.addPartsButton.TabIndex = 7;
             this.addPartsButton.Text = "Add";
             this.addPartsButton.UseVisualStyleBackColor = true;
-            this.addPartsButton.Click += new System.EventHandler(this.addPartsButton_Click);
+            this.addPartsButton.Click += new System.EventHandler(this.AddPartsButton_Click);
             // 
             // modifyPartsButton
             // 
@@ -120,7 +124,7 @@ namespace AlexJonesInventorySystem
             this.modifyPartsButton.TabIndex = 8;
             this.modifyPartsButton.Text = "Modify";
             this.modifyPartsButton.UseVisualStyleBackColor = true;
-            this.modifyPartsButton.Click += new System.EventHandler(this.modifyPartsButton_Click);
+            this.modifyPartsButton.Click += new System.EventHandler(this.ModifyPartsButton_Click);
             // 
             // deletePartsButton
             // 
@@ -130,6 +134,7 @@ namespace AlexJonesInventorySystem
             this.deletePartsButton.TabIndex = 9;
             this.deletePartsButton.Text = "Delete";
             this.deletePartsButton.UseVisualStyleBackColor = true;
+            this.deletePartsButton.Click += new System.EventHandler(this.DeletePartsButton_Click);
             // 
             // deleteProductsButton
             // 
@@ -139,6 +144,7 @@ namespace AlexJonesInventorySystem
             this.deleteProductsButton.TabIndex = 12;
             this.deleteProductsButton.Text = "Delete";
             this.deleteProductsButton.UseVisualStyleBackColor = true;
+            this.deleteProductsButton.Click += new System.EventHandler(this.DeleteProductsButton_Click);
             // 
             // modifyProductsButton
             // 
@@ -148,7 +154,7 @@ namespace AlexJonesInventorySystem
             this.modifyProductsButton.TabIndex = 11;
             this.modifyProductsButton.Text = "Modify";
             this.modifyProductsButton.UseVisualStyleBackColor = true;
-            this.modifyProductsButton.Click += new System.EventHandler(this.modifyProductsButton_Click);
+            this.modifyProductsButton.Click += new System.EventHandler(this.ModifyProductsButton_Click);
             // 
             // addProductsButton
             // 
@@ -158,7 +164,7 @@ namespace AlexJonesInventorySystem
             this.addProductsButton.TabIndex = 10;
             this.addProductsButton.Text = "Add";
             this.addProductsButton.UseVisualStyleBackColor = true;
-            this.addProductsButton.Click += new System.EventHandler(this.addProductsButton_Click);
+            this.addProductsButton.Click += new System.EventHandler(this.AddProductsButton_Click);
             // 
             // exitAppButton
             // 
@@ -168,7 +174,7 @@ namespace AlexJonesInventorySystem
             this.exitAppButton.TabIndex = 13;
             this.exitAppButton.Text = "Exit";
             this.exitAppButton.UseVisualStyleBackColor = true;
-            this.exitAppButton.Click += new System.EventHandler(this.exitAppButton_Click);
+            this.exitAppButton.Click += new System.EventHandler(this.ExitAppButton_Click);
             // 
             // mainScreenTitle
             // 
@@ -199,7 +205,6 @@ namespace AlexJonesInventorySystem
             this.productsLabel.Size = new System.Drawing.Size(68, 18);
             this.productsLabel.TabIndex = 16;
             this.productsLabel.Text = "Products";
-            this.productsLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // MainScreen
             // 
@@ -233,8 +238,8 @@ namespace AlexJonesInventorySystem
 
         #endregion
 
-        private System.Windows.Forms.DataGridView partsDataGridView;
-        private System.Windows.Forms.DataGridView productsDataGridView;
+        public System.Windows.Forms.DataGridView partsDataGridView;
+        public System.Windows.Forms.DataGridView productsDataGridView;
         private System.Windows.Forms.Button searchPartsButton;
         private System.Windows.Forms.TextBox searchPartsTextbox;
         private System.Windows.Forms.TextBox searchProductsTextbox;

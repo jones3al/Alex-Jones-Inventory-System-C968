@@ -45,7 +45,7 @@ namespace AlexJonesInventorySystem
             this.minLabel = new System.Windows.Forms.Label();
             this.minTextBox = new System.Windows.Forms.TextBox();
             this.conditionalLabel = new System.Windows.Forms.Label();
-            this.machineIdTextBox = new System.Windows.Forms.TextBox();
+            this.conditionalTextBox = new System.Windows.Forms.TextBox();
             this.addPartSaveButton = new System.Windows.Forms.Button();
             this.addPartCancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -70,7 +70,7 @@ namespace AlexJonesInventorySystem
             this.inHouseRadioButton.TabStop = true;
             this.inHouseRadioButton.Text = "In-House";
             this.inHouseRadioButton.UseVisualStyleBackColor = true;
-            this.inHouseRadioButton.CheckedChanged += new System.EventHandler(this.inHouseRadioButton_CheckedChanged);
+            this.inHouseRadioButton.CheckedChanged += new System.EventHandler(this.InHouseRadioButton_CheckedChanged);
             // 
             // outsourcedRadioButton
             // 
@@ -82,12 +82,13 @@ namespace AlexJonesInventorySystem
             this.outsourcedRadioButton.TabStop = true;
             this.outsourcedRadioButton.Text = "Outsourced";
             this.outsourcedRadioButton.UseVisualStyleBackColor = true;
-            this.outsourcedRadioButton.CheckedChanged += new System.EventHandler(this.outsourcedRadioButton_CheckedChanged);
+            this.outsourcedRadioButton.CheckedChanged += new System.EventHandler(this.OutsourcedRadioButton_CheckedChanged);
             // 
             // idTextBox
             // 
             this.idTextBox.Location = new System.Drawing.Point(271, 62);
             this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
             this.idTextBox.Size = new System.Drawing.Size(255, 22);
             this.idTextBox.TabIndex = 3;
             // 
@@ -108,7 +109,6 @@ namespace AlexJonesInventorySystem
             this.nameLabel.Size = new System.Drawing.Size(45, 17);
             this.nameLabel.TabIndex = 5;
             this.nameLabel.Text = "Name";
-            this.nameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // nameTextBox
             // 
@@ -190,12 +190,12 @@ namespace AlexJonesInventorySystem
             this.conditionalLabel.TabIndex = 15;
             this.conditionalLabel.Text = "Machine ID";
             // 
-            // machineIdTextBox
+            // conditionalTextBox
             // 
-            this.machineIdTextBox.Location = new System.Drawing.Point(271, 286);
-            this.machineIdTextBox.Name = "machineIdTextBox";
-            this.machineIdTextBox.Size = new System.Drawing.Size(255, 22);
-            this.machineIdTextBox.TabIndex = 16;
+            this.conditionalTextBox.Location = new System.Drawing.Point(271, 286);
+            this.conditionalTextBox.Name = "conditionalTextBox";
+            this.conditionalTextBox.Size = new System.Drawing.Size(255, 22);
+            this.conditionalTextBox.TabIndex = 16;
             // 
             // addPartSaveButton
             // 
@@ -205,6 +205,7 @@ namespace AlexJonesInventorySystem
             this.addPartSaveButton.TabIndex = 17;
             this.addPartSaveButton.Text = "Save";
             this.addPartSaveButton.UseVisualStyleBackColor = true;
+            this.addPartSaveButton.Click += new System.EventHandler(this.AddPartSaveButton_Click);
             // 
             // addPartCancelButton
             // 
@@ -223,7 +224,7 @@ namespace AlexJonesInventorySystem
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.addPartCancelButton);
             this.Controls.Add(this.addPartSaveButton);
-            this.Controls.Add(this.machineIdTextBox);
+            this.Controls.Add(this.conditionalTextBox);
             this.Controls.Add(this.conditionalLabel);
             this.Controls.Add(this.minTextBox);
             this.Controls.Add(this.minLabel);
@@ -265,7 +266,7 @@ namespace AlexJonesInventorySystem
         private System.Windows.Forms.Label minLabel;
         private System.Windows.Forms.TextBox minTextBox;
         private System.Windows.Forms.Label conditionalLabel;
-        private System.Windows.Forms.TextBox machineIdTextBox;
+        private System.Windows.Forms.TextBox conditionalTextBox;
         private System.Windows.Forms.Button addPartSaveButton;
         private System.Windows.Forms.Button addPartCancelButton;
     }

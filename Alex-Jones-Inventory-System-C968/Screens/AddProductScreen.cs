@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlexJonesInventorySystem.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace AlexJonesInventorySystem
 {
     public partial class AddProductScreen : Form
     {
+        BindingList<Part> addedParts = new BindingList<Part>();
         public AddProductScreen()
         {
             InitializeComponent();
+            
         }
 
         private void addProductCancelButton_Click(object sender, EventArgs e)

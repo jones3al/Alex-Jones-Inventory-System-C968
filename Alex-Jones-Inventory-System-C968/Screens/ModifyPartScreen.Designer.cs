@@ -41,11 +41,11 @@ namespace AlexJonesInventorySystem
             this.priceLabel = new System.Windows.Forms.Label();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.maxLabel = new System.Windows.Forms.Label();
-            this.maxTextbox = new System.Windows.Forms.TextBox();
+            this.maxTextBox = new System.Windows.Forms.TextBox();
             this.minLabel = new System.Windows.Forms.Label();
             this.minTextBox = new System.Windows.Forms.TextBox();
             this.conditionalLabel = new System.Windows.Forms.Label();
-            this.machineIdTextBox = new System.Windows.Forms.TextBox();
+            this.conditionalTextBox = new System.Windows.Forms.TextBox();
             this.modifyPartSaveButton = new System.Windows.Forms.Button();
             this.modifyPartCancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -88,6 +88,7 @@ namespace AlexJonesInventorySystem
             // 
             this.idTextBox.Location = new System.Drawing.Point(271, 62);
             this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
             this.idTextBox.Size = new System.Drawing.Size(255, 22);
             this.idTextBox.TabIndex = 3;
             // 
@@ -108,7 +109,6 @@ namespace AlexJonesInventorySystem
             this.nameLabel.Size = new System.Drawing.Size(45, 17);
             this.nameLabel.TabIndex = 5;
             this.nameLabel.Text = "Name";
-            this.nameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // nameTextBox
             // 
@@ -158,12 +158,12 @@ namespace AlexJonesInventorySystem
             this.maxLabel.TabIndex = 11;
             this.maxLabel.Text = "Max";
             // 
-            // maxTextbox
+            // maxTextBox
             // 
-            this.maxTextbox.Location = new System.Drawing.Point(271, 233);
-            this.maxTextbox.Name = "maxTextbox";
-            this.maxTextbox.Size = new System.Drawing.Size(86, 22);
-            this.maxTextbox.TabIndex = 12;
+            this.maxTextBox.Location = new System.Drawing.Point(271, 233);
+            this.maxTextBox.Name = "maxTextBox";
+            this.maxTextBox.Size = new System.Drawing.Size(86, 22);
+            this.maxTextBox.TabIndex = 12;
             // 
             // minLabel
             // 
@@ -190,12 +190,12 @@ namespace AlexJonesInventorySystem
             this.conditionalLabel.TabIndex = 15;
             this.conditionalLabel.Text = "Machine ID";
             // 
-            // machineIdTextBox
+            // conditionalTextBox
             // 
-            this.machineIdTextBox.Location = new System.Drawing.Point(271, 286);
-            this.machineIdTextBox.Name = "machineIdTextBox";
-            this.machineIdTextBox.Size = new System.Drawing.Size(255, 22);
-            this.machineIdTextBox.TabIndex = 16;
+            this.conditionalTextBox.Location = new System.Drawing.Point(271, 286);
+            this.conditionalTextBox.Name = "conditionalTextBox";
+            this.conditionalTextBox.Size = new System.Drawing.Size(255, 22);
+            this.conditionalTextBox.TabIndex = 16;
             // 
             // modifyPartSaveButton
             // 
@@ -205,6 +205,7 @@ namespace AlexJonesInventorySystem
             this.modifyPartSaveButton.TabIndex = 17;
             this.modifyPartSaveButton.Text = "Save";
             this.modifyPartSaveButton.UseVisualStyleBackColor = true;
+            this.modifyPartSaveButton.Click += new System.EventHandler(this.modifyPartSaveButton_Click);
             // 
             // modifyPartCancelButton
             // 
@@ -223,11 +224,11 @@ namespace AlexJonesInventorySystem
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.modifyPartCancelButton);
             this.Controls.Add(this.modifyPartSaveButton);
-            this.Controls.Add(this.machineIdTextBox);
+            this.Controls.Add(this.conditionalTextBox);
             this.Controls.Add(this.conditionalLabel);
             this.Controls.Add(this.minTextBox);
             this.Controls.Add(this.minLabel);
-            this.Controls.Add(this.maxTextbox);
+            this.Controls.Add(this.maxTextBox);
             this.Controls.Add(this.maxLabel);
             this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.priceLabel);
@@ -261,11 +262,11 @@ namespace AlexJonesInventorySystem
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Label maxLabel;
-        private System.Windows.Forms.TextBox maxTextbox;
+        private System.Windows.Forms.TextBox maxTextBox;
         private System.Windows.Forms.Label minLabel;
         private System.Windows.Forms.TextBox minTextBox;
         private System.Windows.Forms.Label conditionalLabel;
-        private System.Windows.Forms.TextBox machineIdTextBox;
+        private System.Windows.Forms.TextBox conditionalTextBox;
         private System.Windows.Forms.Button modifyPartSaveButton;
         private System.Windows.Forms.Button modifyPartCancelButton;
     }
