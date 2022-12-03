@@ -68,6 +68,7 @@ namespace AlexJonesInventorySystem
             // 
             // idTextBox
             // 
+            this.idTextBox.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.idTextBox.Location = new System.Drawing.Point(278, 180);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
@@ -169,6 +170,8 @@ namespace AlexJonesInventorySystem
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(255, 22);
             this.searchTextBox.TabIndex = 16;
+            this.searchTextBox.Text = "search by id";
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // modifyProductSaveButton
             // 
@@ -192,6 +195,7 @@ namespace AlexJonesInventorySystem
             // 
             // searchButton
             // 
+            this.searchButton.Enabled = false;
             this.searchButton.Location = new System.Drawing.Point(928, 18);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(103, 32);
@@ -204,9 +208,12 @@ namespace AlexJonesInventorySystem
             // 
             this.candidatePartsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.candidatePartsDataGridView.Location = new System.Drawing.Point(745, 105);
+            this.candidatePartsDataGridView.MultiSelect = false;
             this.candidatePartsDataGridView.Name = "candidatePartsDataGridView";
+            this.candidatePartsDataGridView.ReadOnly = true;
             this.candidatePartsDataGridView.RowHeadersWidth = 51;
             this.candidatePartsDataGridView.RowTemplate.Height = 24;
+            this.candidatePartsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.candidatePartsDataGridView.Size = new System.Drawing.Size(569, 150);
             this.candidatePartsDataGridView.TabIndex = 20;
             // 
@@ -214,9 +221,12 @@ namespace AlexJonesInventorySystem
             // 
             this.associatedPartsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.associatedPartsDataGridView.Location = new System.Drawing.Point(745, 317);
+            this.associatedPartsDataGridView.MultiSelect = false;
             this.associatedPartsDataGridView.Name = "associatedPartsDataGridView";
+            this.associatedPartsDataGridView.ReadOnly = true;
             this.associatedPartsDataGridView.RowHeadersWidth = 51;
             this.associatedPartsDataGridView.RowTemplate.Height = 24;
+            this.associatedPartsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.associatedPartsDataGridView.Size = new System.Drawing.Size(569, 150);
             this.associatedPartsDataGridView.TabIndex = 21;
             // 

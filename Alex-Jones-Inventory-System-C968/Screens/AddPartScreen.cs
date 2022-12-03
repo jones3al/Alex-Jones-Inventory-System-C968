@@ -49,6 +49,7 @@ namespace AlexJonesInventorySystem
             catch
             {
                 MessageBox.Show("Error: Inventory, Price, Max and Min must be numeric values.");
+                return;
             }
             min = int.Parse(minTextBox.Text);
             max = int.Parse(maxTextBox.Text);

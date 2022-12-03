@@ -74,6 +74,7 @@ namespace AlexJonesInventorySystem
             // 
             // searchPartsButton
             // 
+            this.searchPartsButton.Enabled = false;
             this.searchPartsButton.Location = new System.Drawing.Point(380, 26);
             this.searchPartsButton.Name = "searchPartsButton";
             this.searchPartsButton.Size = new System.Drawing.Size(84, 29);
@@ -88,6 +89,8 @@ namespace AlexJonesInventorySystem
             this.searchPartsTextbox.Name = "searchPartsTextbox";
             this.searchPartsTextbox.Size = new System.Drawing.Size(263, 22);
             this.searchPartsTextbox.TabIndex = 4;
+            this.searchPartsTextbox.Text = "search by id";
+            this.searchPartsTextbox.TextChanged += new System.EventHandler(this.searchPartsTextbox_TextChanged);
             // 
             // searchProductsTextbox
             // 
@@ -95,9 +98,12 @@ namespace AlexJonesInventorySystem
             this.searchProductsTextbox.Name = "searchProductsTextbox";
             this.searchProductsTextbox.Size = new System.Drawing.Size(263, 22);
             this.searchProductsTextbox.TabIndex = 6;
+            this.searchProductsTextbox.Text = "search by id";
+            this.searchProductsTextbox.TextChanged += new System.EventHandler(this.searchProductsTextbox_TextChanged);
             // 
             // searchProductsButton
             // 
+            this.searchProductsButton.Enabled = false;
             this.searchProductsButton.Location = new System.Drawing.Point(1131, 30);
             this.searchProductsButton.Name = "searchProductsButton";
             this.searchProductsButton.Size = new System.Drawing.Size(84, 29);

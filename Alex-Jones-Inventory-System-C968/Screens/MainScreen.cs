@@ -77,6 +77,11 @@ namespace AlexJonesInventorySystem
         }
         private void SearchPartsButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(searchPartsTextbox.Text))
+            {
+                MessageBox.Show("You Must enter a number to search for a Part");
+                return;
+            }
             int searchValue = int.Parse(searchPartsTextbox.Text);
             Part match = Inventory.LookupPart(int.Parse(searchPartsTextbox.Text));
             if(searchValue < 1)
@@ -146,26 +151,35 @@ namespace AlexJonesInventorySystem
 
         private void SearchProductsButton_Click(object sender, EventArgs e)
         {
-            int searchValue = int.Parse(searchProductsTextbox.Text);
-            Product match = Inventory.LookupProduct(int.Parse(searchProductsTextbox.Text));
-            if (searchValue < 1)
+            if (string.IsNullOrEmpty(searchProductsTextbox.Text))
             {
+                MessageBox.Show("You Must enter a number to search for a Part");
                 return;
             }
             else
             {
-                foreach (DataGridViewRow row in productsDataGridView.Rows)
+                int searchValue = int.Parse(searchProductsTextbox.Text);
+                Product match = Inventory.LookupProduct(int.Parse(searchProductsTextbox.Text));
+                if (searchValue < 1)
                 {
-                    Product product = (Product)row.DataBoundItem;
-                    if (product.ProductId == match.ProductId)
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in productsDataGridView.Rows)
                     {
-                        row.Selected = true;
-                        break;
+                        Product product = (Product)row.DataBoundItem;
+                        if (product.ProductId == match.ProductId)
+                        {
+                            row.Selected = true;
+                            break;
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                        }
                     }
-                    else
-                    {
-                        row.Selected = false;
-                    }
+
                 }
             }
         }
@@ -182,5 +196,14 @@ namespace AlexJonesInventorySystem
             Close();
         }
 
+        private void searchPartsTextbox_TextChanged(object sender, EventArgs e)
+        {
+            searchPartsButton.Enabled = true;
+        }
+
+        private void searchProductsTextbox_TextChanged(object sender, EventArgs e)
+        {
+            searchProductsButton.Enabled = true;
+        }
     }
 }

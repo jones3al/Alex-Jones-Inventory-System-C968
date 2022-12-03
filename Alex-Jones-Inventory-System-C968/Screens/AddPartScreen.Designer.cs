@@ -86,6 +86,7 @@ namespace AlexJonesInventorySystem
             // 
             // idTextBox
             // 
+            this.idTextBox.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.idTextBox.Location = new System.Drawing.Point(271, 62);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;

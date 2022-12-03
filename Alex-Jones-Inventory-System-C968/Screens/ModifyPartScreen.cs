@@ -57,7 +57,7 @@ namespace AlexJonesInventorySystem
         }
 
         //update selected part with new data
-        private void modifyPartSaveButton_Click(object sender, EventArgs e)
+        private void ModifyPartSaveButton_Click(object sender, EventArgs e)
         {
             int min;
             int max;
