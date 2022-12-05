@@ -55,6 +55,13 @@ namespace AlexJonesInventorySystem
             string name = nameTextBox.Text;
             int id = int.Parse(idTextBox.Text);
 
+            //check for special characters
+            if (Inventory.HasSpecial(minTextBox.Text, maxTextBox.Text, inventoryTextBox.Text, priceTextBox.Text))
+            {
+                MessageBox.Show("Error: Inventory, Price, Max and Min cannot contain special characters. Please use numeric values.");
+                return;
+            }
+
             //ensures numeric values not strings
             try
             {
@@ -147,11 +154,6 @@ namespace AlexJonesInventorySystem
             DialogResult result = MessageBox.Show("Do you want to delete? This cannot be undone.", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                Product p = (Product)associatedPartsDataGridView.CurrentRow.DataBoundItem;
-                int id = int.Parse(idTextBox.Text);
-
-                Product prod = Inventory.LookupProduct(id);
-                prod.RemoveAssociatedPart(p.ProductId);
 
                 foreach (DataGridViewRow row in associatedPartsDataGridView.SelectedRows)
                 {

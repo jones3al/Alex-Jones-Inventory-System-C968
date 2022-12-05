@@ -66,6 +66,13 @@ namespace AlexJonesInventorySystem
             int id = int.Parse(idTextBox.Text);
             string name = nameTextBox.Text;
 
+            //check for special characters
+            if (Inventory.HasSpecial(minTextBox.Text, maxTextBox.Text, inventoryTextBox.Text, priceTextBox.Text))
+            {
+                MessageBox.Show("Error: Inventory, Price, Max and Min cannot contain special characters. Please use numeric values.");
+                return;
+            }
+
             //ensures numeric values not strings
             try
             {
@@ -78,6 +85,7 @@ namespace AlexJonesInventorySystem
             catch
             {
                 MessageBox.Show("Error: Inventory, Price, Max and Min must be numeric values.");
+                return;
             }
             min = int.Parse(minTextBox.Text);
             max = int.Parse(maxTextBox.Text);

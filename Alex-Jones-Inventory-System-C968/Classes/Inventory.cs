@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -127,6 +128,16 @@ namespace AlexJonesInventorySystem.Classes
         {
             DeletePart(searchId);
             AddPart(part);
+        }
+
+        public static bool HasSpecial(string s1, string s2, string s3, string s4)
+        {
+            var regexItem = new Regex(@"^*[0-9\.]+$");
+            if (regexItem.IsMatch(s1) && regexItem.IsMatch(s2) && regexItem.IsMatch(s3) && regexItem.IsMatch(s4))
+            {
+                return false;
+            }
+            else return true;
         }
         
     }

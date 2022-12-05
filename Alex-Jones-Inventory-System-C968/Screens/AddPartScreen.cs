@@ -37,6 +37,13 @@ namespace AlexJonesInventorySystem
             int id = Inventory.AllParts.Count + 1;
             string name = nameTextBox.Text;
 
+            //check for special characters
+            if (Inventory.HasSpecial(minTextBox.Text, maxTextBox.Text, inventoryTextBox.Text, priceTextBox.Text))
+            {
+                MessageBox.Show("Error: Inventory, Price, Max and Min cannot contain special characters. Please use numeric values.");
+                return;
+            }
+
             //ensures numeric values not strings
             try
             {
@@ -44,6 +51,7 @@ namespace AlexJonesInventorySystem
                 max = int.Parse(maxTextBox.Text);
                 instock = int.Parse(inventoryTextBox.Text);
                 price = decimal.Parse(minTextBox.Text);
+               
 
             }
             catch
@@ -69,6 +77,9 @@ namespace AlexJonesInventorySystem
                 MessageBox.Show("Error: Inventory must be between min and max.");
                 return;
             }
+
+            //check for special characters
+
 
             //create new part and add
             if (inHouseRadioButton.Checked)
@@ -101,6 +112,7 @@ namespace AlexJonesInventorySystem
             }
             Close();
         }
+
 
         private void addPartCancelButton_Click(object sender, EventArgs e)
         {

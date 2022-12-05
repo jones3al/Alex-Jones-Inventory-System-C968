@@ -84,6 +84,13 @@ namespace AlexJonesInventorySystem
             int max;
             decimal price;
 
+            //check for special characters
+            if (Inventory.HasSpecial(minTextBox.Text, maxTextBox.Text, inventoryTextBox.Text, priceTextBox.Text))
+            {
+                MessageBox.Show("Error: Inventory, Price, Max and Min cannot contain special characters. Please use numeric values.");
+                return;
+            }
+
             try
             {
                 min = int.Parse(minTextBox.Text);
