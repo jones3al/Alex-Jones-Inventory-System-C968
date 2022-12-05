@@ -55,6 +55,13 @@ namespace AlexJonesInventorySystem
             string name = nameTextBox.Text;
             int id = int.Parse(idTextBox.Text);
 
+            //check for special characters
+            if (Inventory.HasSpecial(minTextBox.Text, maxTextBox.Text, inventoryTextBox.Text, priceTextBox.Text))
+            {
+                MessageBox.Show("Error: Inventory, Price, Max and Min cannot contain special characters. Please use numeric values.");
+                return;
+            }
+
             //ensures numeric values not strings
             try
             {
@@ -67,6 +74,7 @@ namespace AlexJonesInventorySystem
             catch
             {
                 MessageBox.Show("Error: Inventory, Price, Max and Min must be numeric values.");
+                return;
             }
             min = int.Parse(minTextBox.Text);
             max = int.Parse(maxTextBox.Text);
@@ -144,19 +152,27 @@ namespace AlexJonesInventorySystem
         private void DeleteProductButton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to delete? This cannot be undone.", "Confirmation", MessageBoxButtons.YesNo);
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
-                Product p = (Product)candidatePartsDataGridView.CurrentRow.DataBoundItem;
-                int id = int.Parse(idTextBox.Text);
 
-                Product prod = Inventory.LookupProduct(id);
-                prod.RemoveAssociatedPart(p.ProductId);
-
-                foreach (DataGridViewRow row in candidatePartsDataGridView.SelectedRows)
+                foreach (DataGridViewRow row in associatedPartsDataGridView.SelectedRows)
                 {
-                    candidatePartsDataGridView.Rows.RemoveAt(row.Index);
+                    associatedPartsDataGridView.Rows.RemoveAt(row.Index);
                 }
             }
+            else return;
+        }
+
+        private void BindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //clear selection
+            candidatePartsDataGridView.ClearSelection();
+            associatedPartsDataGridView.ClearSelection();
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            searchButton.Enabled = true;
         }
     }
 }

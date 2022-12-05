@@ -86,6 +86,7 @@ namespace AlexJonesInventorySystem
             // 
             // idTextBox
             // 
+            this.idTextBox.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.idTextBox.Location = new System.Drawing.Point(271, 62);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
@@ -205,7 +206,7 @@ namespace AlexJonesInventorySystem
             this.modifyPartSaveButton.TabIndex = 17;
             this.modifyPartSaveButton.Text = "Save";
             this.modifyPartSaveButton.UseVisualStyleBackColor = true;
-            this.modifyPartSaveButton.Click += new System.EventHandler(this.modifyPartSaveButton_Click);
+            this.modifyPartSaveButton.Click += new System.EventHandler(this.ModifyPartSaveButton_Click);
             // 
             // modifyPartCancelButton
             // 

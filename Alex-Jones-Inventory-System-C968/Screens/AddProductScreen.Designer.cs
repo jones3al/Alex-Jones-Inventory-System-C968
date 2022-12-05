@@ -39,14 +39,14 @@ namespace AlexJonesInventorySystem
             this.addProductSaveButton = new System.Windows.Forms.Button();
             this.addProductCancelButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.candidatePartsDataGridView = new System.Windows.Forms.DataGridView();
+            this.associatedPartsDataGridView = new System.Windows.Forms.DataGridView();
             this.deleteProductButton = new System.Windows.Forms.Button();
-            this.addProductButton = new System.Windows.Forms.Button();
+            this.addPartsButton = new System.Windows.Forms.Button();
             this.candidatePartsLabel = new System.Windows.Forms.Label();
             this.associatedPartsLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidatePartsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // addProductLabel
@@ -61,8 +61,10 @@ namespace AlexJonesInventorySystem
             // 
             // idTextBox
             // 
+            this.idTextBox.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.idTextBox.Location = new System.Drawing.Point(278, 180);
             this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
             this.idTextBox.Size = new System.Drawing.Size(255, 22);
             this.idTextBox.TabIndex = 3;
             // 
@@ -161,6 +163,8 @@ namespace AlexJonesInventorySystem
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(255, 22);
             this.searchTextBox.TabIndex = 16;
+            this.searchTextBox.Text = "search by id";
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // addProductSaveButton
             // 
@@ -170,6 +174,7 @@ namespace AlexJonesInventorySystem
             this.addProductSaveButton.TabIndex = 17;
             this.addProductSaveButton.Text = "Save";
             this.addProductSaveButton.UseVisualStyleBackColor = true;
+            this.addProductSaveButton.Click += new System.EventHandler(this.addProductSaveButton_Click);
             // 
             // addProductCancelButton
             // 
@@ -183,32 +188,40 @@ namespace AlexJonesInventorySystem
             // 
             // searchButton
             // 
+            this.searchButton.Enabled = false;
             this.searchButton.Location = new System.Drawing.Point(928, 18);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(103, 32);
             this.searchButton.TabIndex = 19;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // dataGridView1
+            // candidatePartsDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(745, 105);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(569, 150);
-            this.dataGridView1.TabIndex = 20;
+            this.candidatePartsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.candidatePartsDataGridView.Location = new System.Drawing.Point(745, 105);
+            this.candidatePartsDataGridView.MultiSelect = false;
+            this.candidatePartsDataGridView.Name = "candidatePartsDataGridView";
+            this.candidatePartsDataGridView.ReadOnly = true;
+            this.candidatePartsDataGridView.RowHeadersWidth = 51;
+            this.candidatePartsDataGridView.RowTemplate.Height = 24;
+            this.candidatePartsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.candidatePartsDataGridView.Size = new System.Drawing.Size(569, 150);
+            this.candidatePartsDataGridView.TabIndex = 20;
             // 
-            // dataGridView2
+            // associatedPartsDataGridView
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(745, 317);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(569, 150);
-            this.dataGridView2.TabIndex = 21;
+            this.associatedPartsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.associatedPartsDataGridView.Location = new System.Drawing.Point(745, 317);
+            this.associatedPartsDataGridView.MultiSelect = false;
+            this.associatedPartsDataGridView.Name = "associatedPartsDataGridView";
+            this.associatedPartsDataGridView.ReadOnly = true;
+            this.associatedPartsDataGridView.RowHeadersWidth = 51;
+            this.associatedPartsDataGridView.RowTemplate.Height = 24;
+            this.associatedPartsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.associatedPartsDataGridView.Size = new System.Drawing.Size(569, 150);
+            this.associatedPartsDataGridView.TabIndex = 21;
             // 
             // deleteProductButton
             // 
@@ -218,15 +231,17 @@ namespace AlexJonesInventorySystem
             this.deleteProductButton.TabIndex = 22;
             this.deleteProductButton.Text = "Delete";
             this.deleteProductButton.UseVisualStyleBackColor = true;
+            this.deleteProductButton.Click += new System.EventHandler(this.deleteProductButton_Click);
             // 
-            // addProductButton
+            // addPartsButton
             // 
-            this.addProductButton.Location = new System.Drawing.Point(1211, 262);
-            this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(103, 28);
-            this.addProductButton.TabIndex = 23;
-            this.addProductButton.Text = "Add";
-            this.addProductButton.UseVisualStyleBackColor = true;
+            this.addPartsButton.Location = new System.Drawing.Point(1211, 262);
+            this.addPartsButton.Name = "addPartsButton";
+            this.addPartsButton.Size = new System.Drawing.Size(103, 28);
+            this.addPartsButton.TabIndex = 23;
+            this.addPartsButton.Text = "Add";
+            this.addPartsButton.UseVisualStyleBackColor = true;
+            this.addPartsButton.Click += new System.EventHandler(this.addPartsButton_Click);
             // 
             // candidatePartsLabel
             // 
@@ -242,9 +257,9 @@ namespace AlexJonesInventorySystem
             this.associatedPartsLabel.AutoSize = true;
             this.associatedPartsLabel.Location = new System.Drawing.Point(742, 287);
             this.associatedPartsLabel.Name = "associatedPartsLabel";
-            this.associatedPartsLabel.Size = new System.Drawing.Size(213, 17);
+            this.associatedPartsLabel.Size = new System.Drawing.Size(221, 17);
             this.associatedPartsLabel.TabIndex = 25;
-            this.associatedPartsLabel.Text = "Parts Assocaite with this Product";
+            this.associatedPartsLabel.Text = "Parts Associated with this Product";
             // 
             // AddProductScreen
             // 
@@ -253,10 +268,10 @@ namespace AlexJonesInventorySystem
             this.ClientSize = new System.Drawing.Size(1448, 560);
             this.Controls.Add(this.associatedPartsLabel);
             this.Controls.Add(this.candidatePartsLabel);
-            this.Controls.Add(this.addProductButton);
+            this.Controls.Add(this.addPartsButton);
             this.Controls.Add(this.deleteProductButton);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.associatedPartsDataGridView);
+            this.Controls.Add(this.candidatePartsDataGridView);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.addProductCancelButton);
             this.Controls.Add(this.addProductSaveButton);
@@ -276,8 +291,8 @@ namespace AlexJonesInventorySystem
             this.Controls.Add(this.addProductLabel);
             this.Name = "AddProductScreen";
             this.Text = "Add Product";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidatePartsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,10 +318,10 @@ namespace AlexJonesInventorySystem
         private System.Windows.Forms.Button addProductSaveButton;
         private System.Windows.Forms.Button addProductCancelButton;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView candidatePartsDataGridView;
+        private System.Windows.Forms.DataGridView associatedPartsDataGridView;
         private System.Windows.Forms.Button deleteProductButton;
-        private System.Windows.Forms.Button addProductButton;
+        private System.Windows.Forms.Button addPartsButton;
         private System.Windows.Forms.Label candidatePartsLabel;
         private System.Windows.Forms.Label associatedPartsLabel;
     }
